@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panduan Cek MAC Address & Model Perangkat</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            butter: {
+              50: '#FDFCF7',
+              100: '#FBF7E4',
+              200: '#F5ECC6',
+              300: '#EEDF9E',
+              400: '#E5CE6E',
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-butter-50 text-stone-800 antialiased min-h-screen flex flex-col justify-between">
+
+  <!-- Main Container -->
+  <main class="max-w-4xl mx-auto w-full px-4 py-12 sm:px-6">
+    
+    <!-- Header -->
+    <div class="text-center mb-10">
+      <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-butter-200 text-stone-700 mb-3">
+        <i data-lucide="info" class="w-3.5 h-3.5"></i> Panduan Perangkat
+      </span>
+      <h1 class="text-2xl sm:text-3xl font-bold tracking-tight text-stone-900">
+        Cara Cek MAC Address & Model Name
+      </h1>
+      <p class="mt-2 text-sm sm:text-base text-stone-600">
+        Pilih jenis perangkat di bawah ini. Klik pada gambar panduan untuk memperbesar tampilan.
+      </p>
+    </div>
+
+    <!-- Navigation Tabs -->
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 bg-stone-200/70 p-1.5 rounded-2xl mb-8">
+      <button onclick="switchTab('iphone')" id="tab-iphone" class="tab-btn flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl text-sm font-semibold transition-all bg-white text-stone-900 shadow-sm">
+        <i data-lucide="smartphone" class="w-4 h-4"></i> iPhone
+      </button>
+      <button onclick="switchTab('android')" id="tab-android" class="tab-btn flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl text-sm font-semibold transition-all text-stone-600 hover:text-stone-900">
+        <i data-lucide="tablet-smartphone" class="w-4 h-4"></i> Android
+      </button>
+      <button onclick="switchTab('windows')" id="tab-windows" class="tab-btn flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl text-sm font-semibold transition-all text-stone-600 hover:text-stone-900">
+        <i data-lucide="laptop" class="w-4 h-4"></i> Windows
+      </button>
+      <button onclick="switchTab('mac')" id="tab-mac" class="tab-btn flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl text-sm font-semibold transition-all text-stone-600 hover:text-stone-900">
+        <i data-lucide="monitor" class="w-4 h-4"></i> macOS
+      </button>
+    </div>
+
+    <!-- Content Area -->
+    <div class="bg-white rounded-3xl border border-stone-200/80 shadow-sm p-6 sm:p-8">
+      
+      <!-- ================= 1. IPHONE CONTENT ================= -->
+      <div id="content-iphone" class="tab-content space-y-10">
+        
+        <!-- Section: Model Name iPhone -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
+          <div class="md:col-span-7">
+            <div class="flex items-center gap-2.5 mb-4">
+              <div class="p-2 rounded-lg bg-butter-100 text-stone-800">
+                <i data-lucide="tag" class="w-5 h-5"></i>
+              </div>
+              <h2 class="text-lg font-bold text-stone-900">1. Melihat Model Name iPhone</h2>
+            </div>
+            <ol class="space-y-3 text-sm text-stone-600 list-decimal list-inside pl-1">
+              <li>Buka aplikasi <strong class="text-stone-800">Settings (Pengaturan)</strong>.</li>
+              <li>Pilih menu <strong class="text-stone-800">General (Umum)</strong> &rarr; <strong class="text-stone-800">About (Mengenai)</strong>.</li>
+              <li>Lihat pada baris <strong class="text-stone-800">Model Name (Nama Model)</strong> (contoh: <em>iPhone 15 Pro</em>).</li>
+            </ol>
+          </div>
+
+          <!-- Tempat Gambar iPhone Model -->
+          <div class="md:col-span-5">
+            <div class="group relative rounded-2xl border-2 border-dashed border-stone-200 bg-stone-50/70 p-2 overflow-hidden hover:border-butter-400 transition-all">
+              <!-- GANTI PATH GAMBAR DI SINI -->
+              <img 
+                src="images/Model Name Iphone.jpeg" 
+                alt="Panduan Model Name iPhone" 
+                onclick="openModal(this.src, this.alt)"
+                class="w-full max-h-72 object-contain rounded-xl cursor-zoom-in mx-auto"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+              >
+              <div class="hidden flex-col items-center justify-center py-10 px-4 text-center">
+                <i data-lucide="image-plus" class="w-8 h-8 text-stone-400 mb-2"></i>
+                <p class="text-xs font-semibold text-stone-600">Tempat Screenshot Model iPhone</p>
+                <code class="mt-1 text-[11px] bg-butter-100 text-stone-700 px-2 py-0.5 rounded">images/iphone-model.png</code>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <hr class="border-stone-100">
+
+        <!-- Section: MAC Address iPhone -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
+          <div class="md:col-span-7">
+            <div class="flex items-center gap-2.5 mb-4">
+              <div class="p-2 rounded-lg bg-butter-100 text-stone-800">
+                <i data-lucide="wifi" class="w-5 h-5"></i>
+              </div>
+              <h2 class="text-lg font-bold text-stone-900">2. Melihat MAC Address (Wi-Fi Address)</h2>
+            </div>
+            <ol class="space-y-3 text-sm text-stone-600 list-decimal list-inside pl-1">
+              <li>Masih di menu <strong class="text-stone-800">Settings</strong> &rarr; <strong class="text-stone-800">General</strong> &rarr; <strong class="text-stone-800">About</strong>.</li>
+              <li>Scroll ke bawah dan cari bagian <strong class="text-stone-800">Wi-Fi Address (Alamat Wi-Fi)</strong>.</li>
+              <li>Salin 12 karakter kode tersebut (contoh: <code class="bg-stone-100 px-1.5 py-0.5 rounded text-stone-800 font-mono">A1:B2:C3:D4:E5:F6</code>).</li>
+            </ol>
+
+            <div class="mt-5 p-4 rounded-2xl bg-butter-100/70 border border-butter-200 text-xs sm:text-sm text-stone-700 flex gap-3 items-start">
+              <i data-lucide="shield-alert" class="w-5 h-5 text-amber-600 shrink-0 mt-0.5"></i>
+              <div>
+                <strong class="font-semibold text-stone-900 block mb-0.5">Penting untuk Pendaftaran Wi-Fi:</strong>
+                Jika MAC Address didaftarkan ke jaringan kantor/kampus, matikan fitur <strong>Private Wi-Fi Address</strong> (<strong class="font-medium">Settings &rarr; Wi-Fi &rarr; klik ikon (i) di Wi-Fi terkait &rarr; Private Wi-Fi Address: Off</strong>).
+              </div>
+            </div>
+          </div>
+
+          <!-- Tempat Gambar iPhone MAC -->
+          <div class="md:col-span-5">
+            <div class="group relative rounded-2xl border-2 border-dashed border-stone-200 bg-stone-50/70 p-2 overflow-hidden hover:border-butter-400 transition-all">
+              <!-- GANTI PATH GAMBAR DI SINI -->
+              <img 
+                src="images/Mac Address Iphone.jpeg" 
+                alt="Panduan MAC Address iPhone" 
+                onclick="openModal(this.src, this.alt)"
+                class="w-full max-h-72 object-contain rounded-xl cursor-zoom-in mx-auto"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+              >
+              <div class="hidden flex-col items-center justify-center py-10 px-4 text-center">
+                <i data-lucide="image-plus" class="w-8 h-8 text-stone-400 mb-2"></i>
+                <p class="text-xs font-semibold text-stone-600">Tempat Screenshot MAC iPhone</p>
+                <code class="mt-1 text-[11px] bg-butter-100 text-stone-700 px-2 py-0.5 rounded">images/iphone-mac.png</code>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ================= 2. ANDROID CONTENT ================= -->
+      <div id="content-android" class="tab-content space-y-10 hidden">
+        
+        <!-- Section: Model Name Android -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
+          <div class="md:col-span-7">
+            <div class="flex items-center gap-2.5 mb-4">
+              <div class="p-2 rounded-lg bg-butter-100 text-stone-800">
+                <i data-lucide="tag" class="w-5 h-5"></i>
+              </div>
+              <h2 class="text-lg font-bold text-stone-900">1. Melihat Model Name Android</h2>
+            </div>
+            <ol class="space-y-3 text-sm text-stone-600 list-decimal list-inside pl-1">
+              <li>Buka aplikasi <strong class="text-stone-800">Settings (Pengaturan)</strong>.</li>
+              <li>Scroll ke paling bawah dan pilih <strong class="text-stone-800">About Phone (Tentang Ponsel)</strong>.</li>
+              <li>Lihat bagian <strong class="text-stone-800">Model</strong> atau nama perangkat di bagian atas layar.</li>
+            </ol>
+          </div>
+
+          <!-- Tempat Gambar Android Model -->
+          <div class="md:col-span-5">
+            <div class="group relative rounded-2xl border-2 border-dashed border-stone-200 bg-stone-50/70 p-2 overflow-hidden hover:border-butter-400 transition-all">
+              <!-- GANTI PATH GAMBAR DI SINI -->
+              <img 
+                src="images/android-model.png" 
+                alt="Panduan Model Name Android" 
+                onclick="openModal(this.src, this.alt)"
+                class="w-full max-h-72 object-contain rounded-xl cursor-zoom-in mx-auto"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+              >
+              <div class="hidden flex-col items-center justify-center py-10 px-4 text-center">
+                <i data-lucide="image-plus" class="w-8 h-8 text-stone-400 mb-2"></i>
+                <p class="text-xs font-semibold text-stone-600">Tempat Screenshot Model Android</p>
+                <code class="mt-1 text-[11px] bg-butter-100 text-stone-700 px-2 py-0.5 rounded">images/android-model.png</code>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <hr class="border-stone-100">
+
+        <!-- Section: MAC Address Android -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
+          <div class="md:col-span-7">
+            <div class="flex items-center gap-2.5 mb-4">
+              <div class="p-2 rounded-lg bg-butter-100 text-stone-800">
+                <i data-lucide="wifi" class="w-5 h-5"></i>
+              </div>
+              <h2 class="text-lg font-bold text-stone-900">2. Melihat MAC Address</h2>
+            </div>
+            <ol class="space-y-3 text-sm text-stone-600 list-decimal list-inside pl-1">
+              <li>Buka <strong class="text-stone-800">Settings</strong> &rarr; <strong class="text-stone-800">About Phone (Tentang Ponsel)</strong>.</li>
+              <li>Pilih menu <strong class="text-stone-800">Status Information (Informasi Status)</strong> atau <strong class="text-stone-800">All Specs</strong>.</li>
+              <li>Scroll ke bawah dan lihat bagian <strong class="text-stone-800">Device Wi-Fi MAC address</strong>.</li>
+            </ol>
+
+            <div class="mt-5 p-4 rounded-2xl bg-butter-100/70 border border-butter-200 text-xs sm:text-sm text-stone-700 flex gap-3 items-start">
+              <i data-lucide="shield-alert" class="w-5 h-5 text-amber-600 shrink-0 mt-0.5"></i>
+              <div>
+                <strong class="font-semibold text-stone-900 block mb-0.5">Catatan Privacy (Randomized MAC):</strong>
+                Pastikan menyalin <strong>Device/Phone MAC Address</strong>. Di pengaturan Wi-Fi tujuan, ubah bagian Privacy dari <em>Use randomized MAC</em> menjadi <strong>Use device MAC</strong>.
+              </div>
+            </div>
+          </div>
+
+          <!-- Tempat Gambar Android MAC -->
+          <div class="md:col-span-5">
+            <div class="group relative rounded-2xl border-2 border-dashed border-stone-200 bg-stone-50/70 p-2 overflow-hidden hover:border-butter-400 transition-all">
+              <!-- GANTI PATH GAMBAR DI SINI -->
+              <img 
+                src="images/android-mac.png" 
+                alt="Panduan MAC Address Android" 
+                onclick="openModal(this.src, this.alt)"
+                class="w-full max-h-72 object-contain rounded-xl cursor-zoom-in mx-auto"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+              >
+              <div class="hidden flex-col items-center justify-center py-10 px-4 text-center">
+                <i data-lucide="image-plus" class="w-8 h-8 text-stone-400 mb-2"></i>
+                <p class="text-xs font-semibold text-stone-600">Tempat Screenshot MAC Android</p>
+                <code class="mt-1 text-[11px] bg-butter-100 text-stone-700 px-2 py-0.5 rounded">images/android-mac.png</code>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ================= 3. WINDOWS CONTENT ================= -->
+      <div id="content-windows" class="tab-content space-y-10 hidden">
+        
+        <!-- Section: Model Laptop Windows -->
+        <div class="space-y-4">
+          <div class="flex items-center gap-2.5">
+            <div class="p-2 rounded-lg bg-butter-100 text-stone-800">
+              <i data-lucide="tag" class="w-5 h-5"></i>
+            </div>
+            <h2 class="text-lg font-bold text-stone-900">1. Melihat Model Laptop Windows</h2>
+          </div>
+          <ol class="space-y-2.5 text-sm text-stone-600 list-decimal list-inside pl-1">
+            <li>Tekan tombol <kbd class="px-2 py-0.5 text-xs font-semibold bg-stone-100 border border-stone-300 rounded">Win</kbd> + <kbd class="px-2 py-0.5 text-xs font-semibold bg-stone-100 border border-stone-300 rounded">R</kbd> di keyboard.</li>
+            <li>Ketik <code class="bg-stone-100 px-1.5 py-0.5 rounded text-stone-800 font-mono">msinfo32</code> lalu tekan <strong>Enter</strong>.</li>
+            <li>Cari baris <strong class="text-stone-800">System Manufacturer</strong> (Merek) dan <strong class="text-stone-800">System Model</strong> (Model lengkap laptop).</li>
+          </ol>
+
+          <!-- Tempat Gambar Windows Model -->
+          <div class="mt-4 rounded-2xl border-2 border-dashed border-stone-200 bg-stone-50/70 p-3 overflow-hidden hover:border-butter-400 transition-all">
+            <!-- GANTI PATH GAMBAR DI SINI -->
+            <img 
+              src="images/Model Name Windows.jpeg" 
+              alt="Panduan Model Laptop Windows" 
+              onclick="openModal(this.src, this.alt)"
+              class="w-full max-h-80 object-contain rounded-xl cursor-zoom-in mx-auto"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+            >
+            <div class="hidden flex-col items-center justify-center py-10 px-4 text-center">
+              <i data-lucide="image-plus" class="w-8 h-8 text-stone-400 mb-2"></i>
+              <p class="text-xs font-semibold text-stone-600">Tempat Screenshot System Information (msinfo32) Windows</p>
+              <code class="mt-1 text-[11px] bg-butter-100 text-stone-700 px-2 py-0.5 rounded">images/windows-model.png</code>
+            </div>
+          </div>
+        </div>
+
+        <hr class="border-stone-100">
+
+        <!-- Section: MAC Address Windows (DIBAGI 2 FOTO) -->
+        <div class="space-y-4">
+          <div class="flex items-center gap-2.5">
+            <div class="p-2 rounded-lg bg-butter-100 text-stone-800">
+              <i data-lucide="wifi" class="w-5 h-5"></i>
+            </div>
+            <h2 class="text-lg font-bold text-stone-900">2. Melihat MAC Address (Physical Address)</h2>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+            
+            <!-- Kolom Kiri: Cara 1 + Foto 1 -->
+            <div class="flex flex-col justify-between p-4 rounded-2xl bg-stone-50 border border-stone-200/70 space-y-4">
+              <div>
+                <span class="inline-block px-2.5 py-1 rounded-md bg-butter-200 text-stone-800 text-xs font-bold uppercase tracking-wider mb-3">
+                  Cara 1: Lewat Settings
+                </span>
+                <ol class="space-y-2 text-sm text-stone-600 list-decimal list-inside">
+                  <li>Buka <strong class="text-stone-800">Settings &rarr; Network & internet &rarr; Wi-Fi</strong>.</li>
+                  <li>Klik <strong class="text-stone-800">Hardware properties</strong>.</li>
+                  <li>Cari baris <strong class="text-stone-800">Physical address (MAC)</strong>.</li>
+                </ol>
+              </div>
+
+              <!-- Tempat Foto 1: Windows MAC via Settings -->
+              <div class="rounded-xl border-2 border-dashed border-stone-200 bg-white p-2 overflow-hidden hover:border-butter-400 transition-all">
+                <!-- GANTI PATH GAMBAR 1 DI SINI -->
+                <img 
+                  src="images/Mac address windows 2.jpeg" 
+                  alt="Panduan MAC Address Windows - Cara 1 (Settings)" 
+                  onclick="openModal(this.src, this.alt)"
+                  class="w-full max-h-60 object-contain rounded-lg cursor-zoom-in mx-auto"
+                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                >
+                <div class="hidden flex-col items-center justify-center py-8 px-3 text-center">
+                  <i data-lucide="image-plus" class="w-7 h-7 text-stone-400 mb-2"></i>
+                  <p class="text-xs font-semibold text-stone-600">Foto 1: MAC via Settings</p>
+                  <code class="mt-1 text-[11px] bg-butter-100 text-stone-700 px-2 py-0.5 rounded">images/windows-mac-1.png</code>
+                </div>
+              </div>
+            </div>
+
+            <!-- Kolom Kanan: Cara 2 + Foto 2 -->
+            <div class="flex flex-col justify-between p-4 rounded-2xl bg-stone-50 border border-stone-200/70 space-y-4">
+              <div>
+                <span class="inline-block px-2.5 py-1 rounded-md bg-butter-200 text-stone-800 text-xs font-bold uppercase tracking-wider mb-3">
+                  Cara 2: Lewat Command Prompt
+                </span>
+                <ol class="space-y-2 text-sm text-stone-600 list-decimal list-inside">
+                  <li>Tekan <kbd class="px-1.5 py-0.5 text-xs bg-white border rounded">Win+R</kbd>, ketik <code class="bg-white px-1 rounded font-mono">cmd</code> &rarr; Enter.</li>
+                  <li>Ketik <code class="bg-white px-1.5 py-0.5 rounded text-stone-800 font-mono">ipconfig /all</code> &rarr; Enter.</li>
+                  <li>Lihat <strong class="text-stone-800">Physical Address</strong> di bagian Wi-Fi.</li>
+                </ol>
+              </div>
+
+              <!-- Tempat Foto 2: Windows MAC via CMD -->
+              <div class="rounded-xl border-2 border-dashed border-stone-200 bg-white p-2 overflow-hidden hover:border-butter-400 transition-all">
+                <!-- GANTI PATH GAMBAR 2 DI SINI -->
+                <img 
+                  src="images/mac address windows.jpeg" 
+                  alt="Panduan MAC Address Windows - Cara 2 (Command Prompt)" 
+                  onclick="openModal(this.src, this.alt)"
+                  class="w-full max-h-60 object-contain rounded-lg cursor-zoom-in mx-auto"
+                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                >
+                <div class="hidden flex-col items-center justify-center py-8 px-3 text-center">
+                  <i data-lucide="image-plus" class="w-7 h-7 text-stone-400 mb-2"></i>
+                  <p class="text-xs font-semibold text-stone-600">Foto 2: MAC via CMD</p>
+                  <code class="mt-1 text-[11px] bg-butter-100 text-stone-700 px-2 py-0.5 rounded">images/windows-mac-2.png</code>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ================= 4. MAC CONTENT ================= -->
+      <div id="content-mac" class="tab-content space-y-10 hidden">
+        
+        <!-- Section: Model Name Mac -->
+        <div class="space-y-4">
+          <div class="flex items-center gap-2.5">
+            <div class="p-2 rounded-lg bg-butter-100 text-stone-800">
+              <i data-lucide="tag" class="w-5 h-5"></i>
+            </div>
+            <h2 class="text-lg font-bold text-stone-900">1. Melihat Model Name MacBook / Mac</h2>
+          </div>
+          <ol class="space-y-2.5 text-sm text-stone-600 list-decimal list-inside pl-1">
+            <li>Klik ikon <strong class="text-stone-800">Apple (&#63743;)</strong> di pojok kiri atas layar.</li>
+            <li>Pilih <strong class="text-stone-800">About This Mac (Mengenai Mac Ini)</strong>.</li>
+            <li>Nama model beserta tahun rilis dan chip akan langsung terlihat di jendela yang muncul.</li>
+          </ol>
+
+          <!-- Tempat Gambar Mac Model -->
+          <div class="mt-4 rounded-2xl border-2 border-dashed border-stone-200 bg-stone-50/70 p-3 overflow-hidden hover:border-butter-400 transition-all">
+            <!-- GANTI PATH GAMBAR DI SINI -->
+            <img 
+              src="images/mac-model.png" 
+              alt="Panduan Model Name macOS" 
+              onclick="openModal(this.src, this.alt)"
+              class="w-full max-h-80 object-contain rounded-xl cursor-zoom-in mx-auto"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+            >
+            <div class="hidden flex-col items-center justify-center py-10 px-4 text-center">
+              <i data-lucide="image-plus" class="w-8 h-8 text-stone-400 mb-2"></i>
+              <p class="text-xs font-semibold text-stone-600">Tempat Screenshot About This Mac</p>
+              <code class="mt-1 text-[11px] bg-butter-100 text-stone-700 px-2 py-0.5 rounded">images/mac-model.png</code>
+            </div>
+          </div>
+        </div>
+
+        <hr class="border-stone-100">
+
+        <!-- Section: MAC Address Mac -->
+        <div class="space-y-4">
+          <div class="flex items-center gap-2.5">
+            <div class="p-2 rounded-lg bg-butter-100 text-stone-800">
+              <i data-lucide="wifi" class="w-5 h-5"></i>
+            </div>
+            <h2 class="text-lg font-bold text-stone-900">2. Melihat MAC Address (Wi-Fi Address)</h2>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
+            <div class="p-4 rounded-2xl bg-stone-50 border border-stone-200/70">
+              <p class="text-xs font-bold uppercase tracking-wider text-stone-500 mb-2">Cara Cepat (Menu Bar)</p>
+              <ol class="space-y-2 text-sm text-stone-600 list-decimal list-inside">
+                <li>Tahan tombol <kbd class="px-1.5 py-0.5 text-xs bg-white border rounded">Option (⌥)</kbd> di keyboard.</li>
+                <li>Klik <strong class="text-stone-800">ikon Wi-Fi</strong> di menu bar kanan atas.</li>
+                <li>Lihat baris <strong class="text-stone-800">Address</strong> di menu dropdown.</li>
+              </ol>
+            </div>
+            <div class="p-4 rounded-2xl bg-stone-50 border border-stone-200/70">
+              <p class="text-xs font-bold uppercase tracking-wider text-stone-500 mb-2">Lewat System Settings</p>
+              <ol class="space-y-2 text-sm text-stone-600 list-decimal list-inside">
+                <li>Buka <strong class="text-stone-800">System Settings &rarr; Wi-Fi</strong>.</li>
+                <li>Klik <strong class="text-stone-800">Details...</strong> di Wi-Fi yang terhubung.</li>
+                <li>Pilih tab <strong class="text-stone-800">Hardware</strong> &rarr; lihat <strong class="text-stone-800">MAC Address</strong>.</li>
+              </ol>
+            </div>
+          </div>
+
+          <!-- Tempat Gambar Mac MAC Address -->
+          <div class="mt-4 rounded-2xl border-2 border-dashed border-stone-200 bg-stone-50/70 p-3 overflow-hidden hover:border-butter-400 transition-all">
+            <!-- GANTI PATH GAMBAR DI SINI -->
+            <img 
+              src="images/mac-mac.png" 
+              alt="Panduan MAC Address macOS" 
+              onclick="openModal(this.src, this.alt)"
+              class="w-full max-h-80 object-contain rounded-xl cursor-zoom-in mx-auto"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+            >
+            <div class="hidden flex-col items-center justify-center py-10 px-4 text-center">
+              <i data-lucide="image-plus" class="w-8 h-8 text-stone-400 mb-2"></i>
+              <p class="text-xs font-semibold text-stone-600">Tempat Screenshot MAC Address macOS</p>
+              <code class="mt-1 text-[11px] bg-butter-100 text-stone-700 px-2 py-0.5 rounded">images/mac-mac.png</code>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Image Lightbox Modal (Pop-up Zoom Gambar) -->
+  <div id="image-modal" onclick="closeModal()" class="fixed inset-0 z-50 hidden bg-stone-900/80 backdrop-blur-sm items-center justify-center p-4">
+    <div class="relative max-w-4xl w-full flex flex-col items-center">
+      <button onclick="closeModal()" class="mb-3 self-end inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 hover:bg-white/20 text-white text-xs font-medium transition">
+        <i data-lucide="x" class="w-4 h-4"></i> Tutup (ESC)
+      </button>
+      <img id="modal-img" src="" alt="" class="max-h-[82vh] w-auto rounded-2xl shadow-2xl border border-white/10 object-contain bg-white">
+      <p id="modal-caption" class="mt-3 text-xs sm:text-sm text-stone-200 font-medium"></p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="text-center py-6 text-xs text-stone-400">
+    Format MAC Address terdiri dari 6 pasang karakter heksadesimal (Contoh: <code class="text-stone-500">00:1A:2B:3C:4D:5E</code>)
+  </footer>
+
+  <script>
+    // Render Lucide Icons
+    lucide.createIcons();
+
+    // Tab Switcher Logic
+    function switchTab(device) {
+      const devices = ['iphone', 'android', 'windows', 'mac'];
+      
+      devices.forEach(d => {
+        const content = document.getElementById(`content-${d}`);
+        const tab = document.getElementById(`tab-${d}`);
+        
+        if (d === device) {
+          content.classList.remove('hidden');
+          tab.className = "tab-btn flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl text-sm font-semibold transition-all bg-white text-stone-900 shadow-sm";
+        } else {
+          content.classList.add('hidden');
+          tab.className = "tab-btn flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl text-sm font-semibold transition-all text-stone-600 hover:text-stone-900";
+        }
+      });
+    }
+
+    // Lightbox Modal Logic (Zoom Gambar)
+    function openModal(src, alt) {
+      const modal = document.getElementById('image-modal');
+      const modalImg = document.getElementById('modal-img');
+      const modalCaption = document.getElementById('modal-caption');
+      
+      modalImg.src = src;
+      modalCaption.textContent = alt;
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeModal() {
+      const modal = document.getElementById('image-modal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    // Tutup modal dengan tombol Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModal();
+    });
+  </script>
+</body>
+</html>
